@@ -50,6 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
                 android:text="@string/option_1"
+
                 android:textColor="@android:color/black" />
 
             <Button

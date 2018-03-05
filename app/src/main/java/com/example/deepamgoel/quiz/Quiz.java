@@ -85,6 +85,11 @@ public class Quiz extends AppCompatActivity {
         Button option3 = findViewById(R.id.opt3);
         Button option4 = findViewById(R.id.opt4);
 
+        option1.setEnabled(true);
+        option2.setEnabled(true);
+        option3.setEnabled(true);
+        option4.setEnabled(true);
+
         questionNo.setText(String.format(Locale.getDefault(), "Question: %d/%d", i + 1, totalQuestions));
         question.setText(questions[i]);
         option1.setText(options[i][0]);
@@ -119,6 +124,11 @@ public class Quiz extends AppCompatActivity {
         Button option3 = findViewById(R.id.opt3);
         Button option4 = findViewById(R.id.opt4);
 
+        option1.setEnabled(true);
+        option2.setEnabled(true);
+        option3.setEnabled(true);
+        option4.setEnabled(true);
+
         questionNo.setText(String.format(Locale.getDefault(), "Question: %d/%d", i + 1, totalQuestions));
         question.setText(questions[i]);
         option1.setText(options[i][0]);
@@ -137,12 +147,24 @@ public class Quiz extends AppCompatActivity {
     public void validate(View view) {
         int i = questionNumber;
         Button pressed = findViewById(view.getId());
+
+        Button option1 = findViewById(R.id.opt1);
+        Button option2 = findViewById(R.id.opt2);
+        Button option3 = findViewById(R.id.opt3);
+        Button option4 = findViewById(R.id.opt4);
+
+        option1.setEnabled(false);
+        option2.setEnabled(false);
+        option3.setEnabled(false);
+        option4.setEnabled(false);
+
         if (pressed.getText() == answers[i]) {
             pressed.setBackgroundResource(R.drawable.background_correct);
             result++;
         } else {
             pressed.setBackgroundResource(R.drawable.background_wrong);
         }
+
     }
 
 }
