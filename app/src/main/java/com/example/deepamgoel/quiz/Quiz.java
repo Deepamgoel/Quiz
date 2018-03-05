@@ -107,7 +107,7 @@ public class Quiz extends AppCompatActivity {
 
         if (questionNumber < totalQuestions - 1) {
             Button result = findViewById(R.id.next);
-            result.setText(R.string.previous);
+            result.setText(R.string.next);
         }
 
         int i = questionNumber;
