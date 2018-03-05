@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/queBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="#eee">
+
+        <TextView
+            android:id="@+id/questionNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/question"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@id/questionNo"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:text="@string/question"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/optBox1n2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/queBox"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/optBox1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/optNO1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/option_1"
+                android:textColor="@android:color/black"/>
+
+            <Button
+                android:id="@+id/opt1"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_below="@id/optNO1"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:background="@drawable/background"
+                android:onClick="validate" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/optBox2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/optNO2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/option_2"
+                android:textColor="@android:color/black"/>
+
+            <Button
+                android:id="@+id/opt2"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_below="@id/optNO2"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:background="@drawable/background"
+                android:onClick="validate" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/optBox3n4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/optBox1n2"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/optBox3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/optNO3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/option_3"
+                android:textColor="@android:color/black"/>
+
+            <Button
+                android:id="@+id/opt3"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_below="@id/optNO3"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:background="@drawable/background"
+                android:onClick="validate" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/optBox4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/optNO4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/option_4"
+                android:textColor="@android:color/black"/>
+
+            <Button
+                android:id="@+id/opt4"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_below="@id/optNO4"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:background="@drawable/background"
+                android:onClick="validate" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="8dp">
+
+
+        <Button
+            style="?borderlessButtonStyle"
+            android:id="@+id/previous"
+            android:layout_width="0dp"
+            android:layout_margin="8dp"
+            android:layout_height="75dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:text="@string/previous"
+            android:onClick="previous"/>
+
+        <Button
+            style="?borderlessButtonStyle"
+            android:id="@+id/next"
+            android:layout_margin="8dp"
+            android:layout_width="0dp"
+            android:layout_height="75dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:text="@string/next"
+            android:onClick="next"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
