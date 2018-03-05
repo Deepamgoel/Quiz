@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="gap">75dp</dimen>
+    <dimen name="input_margin">24dp</dimen>
+    <dimen name="input_width">300dp</dimen>
+
+    <dimen name="margin">8dp</dimen>
+    <dimen name="option_height">75dp</dimen>
+    <dimen name="question_height">150dp</dimen>
+</resources>

@@ -4,13 +4,14 @@
     android:layout_height="match_parent"
     android:background="@drawable/back">
 
+
     <TextView
         android:id="@+id/input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/gap"
-        android:text="@string/sign_in"
+        android:text="@string/sign_up"
         android:textColor="@android:color/black"
         android:textSize="36sp"
         android:textStyle="bold" />
@@ -39,39 +40,18 @@
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
-    <LinearLayout
+    <Button
+        android:id="@+id/sign_up"
+        style="?borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/id"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/gap"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/sign_up"
-            style="?borderlessButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/input_margin"
-            android:layout_weight="1"
-            android:background="@drawable/background"
-            android:onClick="signUp"
-            android:text="@string/sign_up"
-            android:textColor="@android:color/black" />
-
-        <Button
-            android:id="@+id/sign_in"
-            style="?borderlessButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/input_margin"
-            android:layout_weight="1"
-            android:background="@drawable/background"
-            android:onClick="signIN"
-            android:text="@string/sign_in"
-            android:textColor="@android:color/black" />
-
-    </LinearLayout>
+        android:background="@drawable/background"
+        android:onClick="signUp"
+        android:text="@string/sign_up"
+        android:textColor="@android:color/black" />
 
 
 </RelativeLayout>
