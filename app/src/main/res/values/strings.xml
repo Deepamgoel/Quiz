@@ -9,11 +9,24 @@
 
     <string name="previous">Previous</string>
     <string name="next">Next</string>
-    <string name="result">result</string>
+    <string name="result">Result</string>
 
-    <string name="name">Name</string>
+    <string name="username">Username</string>
     <string name="email_id">Email ID</string>
 
     <string name="sign_up">Sign Up</string>
     <string name="sign_in">Sign In</string>
+
+    <string name="score">Your Score:</string>
+
+
+    <!--<string-array name="questions">-->
+    <!--<item name="question1">Which one was the first search Engine on internet </item>-->
+    <!--<item name="question2">No of bits used in IPv6 </item>-->
+    <!--<item name="question3">Which is the first computer virus </item>-->
+    <!--<item name="question4">Which programming language is exclusively used for AI </item>-->
+    <!--<item name="question5">A dual layer Blue-Ray Disk can store data up-to </item>-->
+    <!--</string-array>-->
+
+
 </resources>

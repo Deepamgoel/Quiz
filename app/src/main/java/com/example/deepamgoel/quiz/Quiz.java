@@ -11,7 +11,7 @@ import java.util.Locale;
 
 public class Quiz extends AppCompatActivity {
 
-    String[] questions = {
+    private static String[] questions = {
             "Which one was the first search Engine on internet?",
             "No of bits used in IPv6?",
             "Which is the first computer virus?",
@@ -19,7 +19,7 @@ public class Quiz extends AppCompatActivity {
             "A dual layer Blue-Ray Disk can store data up-to?"
     };
 
-    String[][] options = {
+    private static String[][] options = {
             {"Google", "Archie Virus", "WAIS", "Altavista"},
             {"32 bit", "64 bit", "128 bit", "256 bit"},
             {"Rabbit", "Creeper Virus", "Elk Cloner", "SCA Virus"},
@@ -27,7 +27,7 @@ public class Quiz extends AppCompatActivity {
             {"20GB", "35GB", "12GB", "50GB"}
     };
 
-    String[] answers = {
+    private static String[] answers = {
             "Archie Virus",
             "128 bit",
             "Creeper Virus",
@@ -35,9 +35,37 @@ public class Quiz extends AppCompatActivity {
             "50GB"
     };
 
+    private static boolean[] answered = new boolean[questions.length];      //For storing attempted question
 
-    int questionNumber = 0, totalQuestions = 5, result = 0;
+    private static int questionNumber = 0, totalQuestions = questions.length, result = 0;
 
+    private Button option1;
+    private Button option2;
+    private Button option3;
+    private Button option4;
+
+    private void setQuestions(int questionNumber) {         //For setting Questions and their respective options in activity
+
+        TextView questionNo = findViewById(R.id.questionNo);
+        TextView question = findViewById(R.id.question);
+
+        option1 = findViewById(R.id.opt1);
+        option2 = findViewById(R.id.opt2);
+        option3 = findViewById(R.id.opt3);
+        option4 = findViewById(R.id.opt4);
+
+        questionNo.setText(String.format(Locale.getDefault(), "Question: %d/%d", questionNumber + 1, totalQuestions));
+        question.setText(questions[questionNumber]);
+        option1.setText(options[questionNumber][0]);
+        option2.setText(options[questionNumber][1]);
+        option3.setText(options[questionNumber][2]);
+        option4.setText(options[questionNumber][3]);
+
+        option1.setBackgroundResource(R.drawable.background);
+        option2.setBackgroundResource(R.drawable.background);
+        option3.setBackgroundResource(R.drawable.background);
+        option4.setBackgroundResource(R.drawable.background);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,111 +75,18 @@ public class Quiz extends AppCompatActivity {
 
         int i = questionNumber;
 
-        TextView questionNo = findViewById(R.id.questionNo);
-        TextView question = findViewById(R.id.question);
-        Button option1 = findViewById(R.id.opt1);
-        Button option2 = findViewById(R.id.opt2);
-        Button option3 = findViewById(R.id.opt3);
-        Button option4 = findViewById(R.id.opt4);
-
-        questionNo.setText(String.format(Locale.getDefault(), "Question: %d/%d", i + 1, totalQuestions));
-        question.setText(questions[i]);
-        option1.setText(options[i][0]);
-        option2.setText(options[i][1]);
-        option3.setText(options[i][2]);
-        option4.setText(options[i][3]);
-    }
-
-    public void next(View view) {
-
-        questionNumber++;
-
-        if (questionNumber == totalQuestions - 1) {
-            Button result = findViewById(R.id.next);
-            result.setText(R.string.result);
-        }
-        if (questionNumber == totalQuestions) {
-            String score = "Your Score:" + result + "/" + totalQuestions;
-            Toast.makeText(this, score, Toast.LENGTH_SHORT).show();
-            questionNumber = totalQuestions - 1;
-        }
-
-        int i = questionNumber;
-
-        TextView questionNo = findViewById(R.id.questionNo);
-        TextView question = findViewById(R.id.question);
-        Button option1 = findViewById(R.id.opt1);
-        Button option2 = findViewById(R.id.opt2);
-        Button option3 = findViewById(R.id.opt3);
-        Button option4 = findViewById(R.id.opt4);
-
-        option1.setEnabled(true);
-        option2.setEnabled(true);
-        option3.setEnabled(true);
-        option4.setEnabled(true);
-
-        questionNo.setText(String.format(Locale.getDefault(), "Question: %d/%d", i + 1, totalQuestions));
-        question.setText(questions[i]);
-        option1.setText(options[i][0]);
-        option2.setText(options[i][1]);
-        option3.setText(options[i][2]);
-        option4.setText(options[i][3]);
-
-        option1.setBackgroundResource(R.drawable.background);
-        option2.setBackgroundResource(R.drawable.background);
-        option3.setBackgroundResource(R.drawable.background);
-        option4.setBackgroundResource(R.drawable.background);
-    }
-
-    public void previous(View view) {
-
-        questionNumber--;
-
-        if (questionNumber < 0)
-            questionNumber = 0;
-
-        if (questionNumber < totalQuestions - 1) {
-            Button result = findViewById(R.id.next);
-            result.setText(R.string.next);
-        }
-
-        int i = questionNumber;
-
-        TextView questionNo = findViewById(R.id.questionNo);
-        TextView question = findViewById(R.id.question);
-        Button option1 = findViewById(R.id.opt1);
-        Button option2 = findViewById(R.id.opt2);
-        Button option3 = findViewById(R.id.opt3);
-        Button option4 = findViewById(R.id.opt4);
-
-        option1.setEnabled(true);
-        option2.setEnabled(true);
-        option3.setEnabled(true);
-        option4.setEnabled(true);
-
-        questionNo.setText(String.format(Locale.getDefault(), "Question: %d/%d", i + 1, totalQuestions));
-        question.setText(questions[i]);
-        option1.setText(options[i][0]);
-        option2.setText(options[i][1]);
-        option3.setText(options[i][2]);
-        option4.setText(options[i][3]);
-
-        option1.setBackgroundResource(R.drawable.background);
-        option2.setBackgroundResource(R.drawable.background);
-        option3.setBackgroundResource(R.drawable.background);
-        option4.setBackgroundResource(R.drawable.background);
-
+        setQuestions(i);
 
     }
 
-    public void validate(View view) {
+    public void validate(View view) {       //For validating pressed option
         int i = questionNumber;
         Button pressed = findViewById(view.getId());
 
-        Button option1 = findViewById(R.id.opt1);
-        Button option2 = findViewById(R.id.opt2);
-        Button option3 = findViewById(R.id.opt3);
-        Button option4 = findViewById(R.id.opt4);
+        option1 = findViewById(R.id.opt1);
+        option2 = findViewById(R.id.opt2);
+        option3 = findViewById(R.id.opt3);
+        option4 = findViewById(R.id.opt4);
 
         option1.setEnabled(false);
         option2.setEnabled(false);
@@ -163,6 +98,72 @@ public class Quiz extends AppCompatActivity {
             result++;
         } else {
             pressed.setBackgroundResource(R.drawable.background_wrong);
+        }
+
+        answered[i] = true;
+    }
+
+
+    public void next(View view) {
+
+        ++questionNumber;
+
+        if (questionNumber == totalQuestions - 1) {
+            Button result = findViewById(R.id.next);
+            result.setText(R.string.result);
+        }
+
+        if (questionNumber == totalQuestions) {
+            String score = R.string.score + result + "/" + totalQuestions;
+            Toast.makeText(this, score, Toast.LENGTH_SHORT).show();
+            questionNumber = totalQuestions - 1;
+            return;
+        }
+
+        setQuestions(questionNumber);
+
+        if (answered[questionNumber]) {
+
+            option1.setEnabled(false);
+            option2.setEnabled(false);
+            option3.setEnabled(false);
+            option4.setEnabled(false);
+
+        } else {
+            option1.setEnabled(true);
+            option2.setEnabled(true);
+            option3.setEnabled(true);
+            option4.setEnabled(true);
+        }
+
+    }
+
+    public void previous(View view) {
+
+        --questionNumber;
+
+        if (questionNumber <= 0)
+            questionNumber = 0;
+
+        if (questionNumber < totalQuestions - 1) {
+            Button result = findViewById(R.id.next);
+            result.setText(R.string.next);
+        }
+
+        setQuestions(questionNumber);
+
+        if (answered[questionNumber]) {
+
+            option1.setEnabled(false);
+            option2.setEnabled(false);
+            option3.setEnabled(false);
+            option4.setEnabled(false);
+
+        } else {
+            option1.setEnabled(true);
+            option2.setEnabled(true);
+            option3.setEnabled(true);
+            option4.setEnabled(true);
         }
 
     }

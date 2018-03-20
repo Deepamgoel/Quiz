@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/back">
+    android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/input"
+        android:id="@+id/sign_in_header_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -16,63 +15,78 @@
         android:textSize="36sp"
         android:textStyle="bold" />
 
-
     <EditText
-        android:id="@+id/name"
+        android:id="@+id/username"
         android:layout_width="@dimen/input_width"
         android:layout_height="wrap_content"
-        android:layout_below="@id/input"
+        android:layout_below="@id/sign_in_header_text"
         android:layout_centerHorizontal="true"
         android:layout_margin="@dimen/input_margin"
-        android:hint="@string/name"
+        android:hint="@string/username"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
-
     <EditText
-        android:id="@+id/id"
+        android:id="@+id/email_id"
         android:layout_width="@dimen/input_width"
         android:layout_height="wrap_content"
-        android:layout_below="@id/name"
+        android:layout_below="@id/username"
         android:layout_centerHorizontal="true"
         android:layout_margin="@dimen/input_margin"
         android:hint="@string/email_id"
+        android:inputType="textEmailAddress"
         android:textColor="@android:color/black"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:visibility="invisible" />
 
     <LinearLayout
+        android:id="@+id/buttonPanel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/id"
+        android:layout_below="@id/email_id"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/gap"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/sign_up"
+            android:id="@+id/sign_up_button_1"
             style="?borderlessButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/input_margin"
             android:layout_weight="1"
             android:background="@drawable/background"
-            android:onClick="signUp"
+            android:onClick="signUpButton"
             android:text="@string/sign_up"
             android:textColor="@android:color/black" />
 
         <Button
-            android:id="@+id/sign_in"
+            android:id="@+id/sign_in_button"
             style="?borderlessButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/input_margin"
             android:layout_weight="1"
             android:background="@drawable/background"
-            android:onClick="signIN"
+            android:onClick="signIn"
             android:text="@string/sign_in"
             android:textColor="@android:color/black" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/sign_up_button_2"
+        style="?borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/email_id"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/gap"
+        android:background="@drawable/background"
+        android:onClick="signUp"
+        android:text="@string/sign_up"
+        android:textColor="@android:color/black"
+        android:visibility="invisible" />
 
 
 </RelativeLayout>
