@@ -1,8 +1,9 @@
 package com.example.deepamgoel.quiz;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,7 +20,6 @@ public class Quiz extends AppCompatActivity {
             "Which programming language is exclusively used for AI?",
             "A dual layer Blue-Ray Disk can store data up-to?"
     };
-
     private String[][] options = {
             {"Google", "Archie Virus", "WAIS", "Altavista"},
             {"32 bit", "64 bit", "128 bit", "256 bit"},
@@ -27,7 +27,6 @@ public class Quiz extends AppCompatActivity {
             {"C", "Java", "J2EE", "Prolog"},
             {"20GB", "35GB", "12GB", "50GB"}
     };
-
     private String[] answers = {
             "Archie Virus",
             "128 bit",
@@ -35,25 +34,22 @@ public class Quiz extends AppCompatActivity {
             "Prolog",
             "50GB"
     };
-
     private boolean[] answered = new boolean[questions.length];      //For storing attempted question
-
-    private int questionNumber, totalQuestions = questions.length, result;
-
+    private int questionNumber;
+    private int totalQuestions = questions.length;
+    private int result;
     private Button option1;
     private Button option2;
     private Button option3;
     private Button option4;
-    private Button button_pressed;
-
-    private void pressed(Button pressed) {
-        button_pressed = pressed;
-    }
+    private TextView attempted;
 
     private void setQuestions(int questionNumber) {         //For setting Questions and their respective options in activity
 
         TextView questionNo = findViewById(R.id.questionNo);
         TextView question = findViewById(R.id.question);
+
+        attempted = findViewById(R.id.attempt);
 
         option1 = findViewById(R.id.opt1);
         option2 = findViewById(R.id.opt2);
@@ -73,6 +69,13 @@ public class Quiz extends AppCompatActivity {
         option3.setBackgroundResource(R.drawable.background);
         option4.setBackgroundResource(R.drawable.background);
 
+        if (answered[questionNumber]) {
+            attempted.setText(R.string.attempt);
+            attempted.setTextColor(Color.GREEN);
+        } else {
+            attempted.setText(R.string.not_attempted);
+            attempted.setTextColor(Color.RED);
+        }
     }
 
     @Override
@@ -85,13 +88,14 @@ public class Quiz extends AppCompatActivity {
 
         setQuestions(i);
 
+        snackBar();
+
     }
 
     public void validate(View view) {       //For validating pressed option
         int i = questionNumber;
 
         Button pressed = findViewById(view.getId());
-        pressed(pressed);
 
         option1 = findViewById(R.id.opt1);
         option2 = findViewById(R.id.opt2);
@@ -110,6 +114,8 @@ public class Quiz extends AppCompatActivity {
             pressed.setBackgroundResource(R.drawable.background_wrong);
         }
 
+        attempted.setText(R.string.attempt);
+        attempted.setTextColor(Color.GREEN);
         answered[i] = true;
 
     }
@@ -125,17 +131,12 @@ public class Quiz extends AppCompatActivity {
 
         if (questionNumber == totalQuestions) {
             final String score = getString(R.string.score) + result + "/" + totalQuestions;
-            Toast scoreToast = Toast.makeText(getApplicationContext(), score, Toast.LENGTH_LONG);
-            scoreToast.setGravity(Gravity.CENTER, 0, 0);
-            scoreToast.show();
+            Toast.makeText(getApplicationContext(), score, Toast.LENGTH_LONG).show();
             questionNumber = totalQuestions - 1;
             return;
         }
 
         setQuestions(questionNumber);
-
-        if (answered[questionNumber])
-            button_pressed.setBackground(button_pressed.getBackground());
 
         if (answered[questionNumber]) {
             option1.setEnabled(false);
@@ -166,10 +167,6 @@ public class Quiz extends AppCompatActivity {
 
         setQuestions(questionNumber);
 
-
-        if (answered[questionNumber])
-            button_pressed.setBackground(button_pressed.getBackground());
-
         if (answered[questionNumber]) {
             option1.setEnabled(false);
             option2.setEnabled(false);
@@ -183,6 +180,10 @@ public class Quiz extends AppCompatActivity {
             option4.setEnabled(true);
         }
 
+    }
+
+    private void snackBar() {
+        Snackbar.make(findViewById(R.id.question), "Welcome", Snackbar.LENGTH_LONG).show();
     }
 
 }

@@ -20,6 +20,8 @@
     <string name="score">Your Score:\t</string>
 
     <string name="background">Background Image</string>
+    <string name="attempt">Attempted</string>
+    <string name="not_attempted">Not Attempted</string>
 
 
     <!--<string-array name="questions">-->

@@ -10,6 +10,7 @@
         android:alpha="0.9"
         android:contentDescription="@string/background"
         android:scaleType="centerCrop"
+        android:scrollX="12dp"
         android:src="@drawable/backdrop1" />
 
     <RelativeLayout
@@ -23,7 +24,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin"
+            android:fontFamily="@font/josefinsans_semibold"
+            android:gravity="center"
             android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/attempt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin"
+            android:fontFamily="@font/josefinsans_semibold" />
 
         <TextView
             android:id="@+id/question"
@@ -192,7 +204,8 @@
             android:gravity="center"
             android:onClick="previous"
             android:text="@string/previous"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/button_text_size" />
 
         <Button
             android:id="@+id/next"
@@ -205,7 +218,8 @@
             android:gravity="center"
             android:onClick="next"
             android:text="@string/next"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/button_text_size" />
 
     </LinearLayout>
 
