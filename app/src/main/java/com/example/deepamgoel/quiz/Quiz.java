@@ -2,6 +2,7 @@ package com.example.deepamgoel.quiz;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,7 +12,7 @@ import java.util.Locale;
 
 public class Quiz extends AppCompatActivity {
 
-    private static String[] questions = {
+    private String[] questions = {
             "Which one was the first search Engine on internet?",
             "No of bits used in IPv6?",
             "Which is the first computer virus?",
@@ -19,7 +20,7 @@ public class Quiz extends AppCompatActivity {
             "A dual layer Blue-Ray Disk can store data up-to?"
     };
 
-    private static String[][] options = {
+    private String[][] options = {
             {"Google", "Archie Virus", "WAIS", "Altavista"},
             {"32 bit", "64 bit", "128 bit", "256 bit"},
             {"Rabbit", "Creeper Virus", "Elk Cloner", "SCA Virus"},
@@ -27,7 +28,7 @@ public class Quiz extends AppCompatActivity {
             {"20GB", "35GB", "12GB", "50GB"}
     };
 
-    private static String[] answers = {
+    private String[] answers = {
             "Archie Virus",
             "128 bit",
             "Creeper Virus",
@@ -35,14 +36,19 @@ public class Quiz extends AppCompatActivity {
             "50GB"
     };
 
-    private static boolean[] answered = new boolean[questions.length];      //For storing attempted question
+    private boolean[] answered = new boolean[questions.length];      //For storing attempted question
 
-    private static int questionNumber = 0, totalQuestions = questions.length, result = 0;
+    private int questionNumber, totalQuestions = questions.length, result;
 
     private Button option1;
     private Button option2;
     private Button option3;
     private Button option4;
+    private Button button_pressed;
+
+    private void pressed(Button pressed) {
+        button_pressed = pressed;
+    }
 
     private void setQuestions(int questionNumber) {         //For setting Questions and their respective options in activity
 
@@ -56,6 +62,7 @@ public class Quiz extends AppCompatActivity {
 
         questionNo.setText(String.format(Locale.getDefault(), "Question: %d/%d", questionNumber + 1, totalQuestions));
         question.setText(questions[questionNumber]);
+
         option1.setText(options[questionNumber][0]);
         option2.setText(options[questionNumber][1]);
         option3.setText(options[questionNumber][2]);
@@ -65,6 +72,7 @@ public class Quiz extends AppCompatActivity {
         option2.setBackgroundResource(R.drawable.background);
         option3.setBackgroundResource(R.drawable.background);
         option4.setBackgroundResource(R.drawable.background);
+
     }
 
     @Override
@@ -81,7 +89,9 @@ public class Quiz extends AppCompatActivity {
 
     public void validate(View view) {       //For validating pressed option
         int i = questionNumber;
+
         Button pressed = findViewById(view.getId());
+        pressed(pressed);
 
         option1 = findViewById(R.id.opt1);
         option2 = findViewById(R.id.opt2);
@@ -101,8 +111,8 @@ public class Quiz extends AppCompatActivity {
         }
 
         answered[i] = true;
-    }
 
+    }
 
     public void next(View view) {
 
@@ -114,16 +124,20 @@ public class Quiz extends AppCompatActivity {
         }
 
         if (questionNumber == totalQuestions) {
-            String score = R.string.score + result + "/" + totalQuestions;
-            Toast.makeText(this, score, Toast.LENGTH_SHORT).show();
+            final String score = getString(R.string.score) + result + "/" + totalQuestions;
+            Toast scoreToast = Toast.makeText(getApplicationContext(), score, Toast.LENGTH_LONG);
+            scoreToast.setGravity(Gravity.CENTER, 0, 0);
+            scoreToast.show();
             questionNumber = totalQuestions - 1;
             return;
         }
 
         setQuestions(questionNumber);
 
-        if (answered[questionNumber]) {
+        if (answered[questionNumber])
+            button_pressed.setBackground(button_pressed.getBackground());
 
+        if (answered[questionNumber]) {
             option1.setEnabled(false);
             option2.setEnabled(false);
             option3.setEnabled(false);
@@ -152,8 +166,11 @@ public class Quiz extends AppCompatActivity {
 
         setQuestions(questionNumber);
 
-        if (answered[questionNumber]) {
 
+        if (answered[questionNumber])
+            button_pressed.setBackground(button_pressed.getBackground());
+
+        if (answered[questionNumber]) {
             option1.setEnabled(false);
             option2.setEnabled(false);
             option3.setEnabled(false);

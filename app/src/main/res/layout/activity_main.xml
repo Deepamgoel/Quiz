@@ -3,17 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.55"
+        android:backgroundTintMode="src_over"
+        android:scaleType="centerCrop"
+        android:scrollX="12dp"
+        android:src="@drawable/backdrop1" />
+
     <TextView
         android:id="@+id/sign_in_header_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/gap"
-        android:fontFamily="sans-serif"
+        android:fontFamily="@font/josefinsans_bold"
         android:text="@string/sign_in"
         android:textColor="@android:color/black"
-        android:textSize="36sp"
-        android:textStyle="bold" />
+        android:textSize="@dimen/head_text_size" />
 
     <EditText
         android:id="@+id/username"
@@ -21,10 +29,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/sign_in_header_text"
         android:layout_centerHorizontal="true"
-        android:layout_margin="@dimen/input_margin"
+        android:layout_marginTop="@dimen/gap"
+        android:fontFamily="@font/josefinsans_regular"
         android:hint="@string/username"
+        android:inputType="textPersonName"
+        android:maxLines="1"
         android:textColor="@android:color/black"
-        android:textSize="20sp" />
+        android:textColorHint="@android:color/darker_gray"
+        android:textSize="@dimen/text_size" />
 
     <EditText
         android:id="@+id/email_id"
@@ -33,10 +45,12 @@
         android:layout_below="@id/username"
         android:layout_centerHorizontal="true"
         android:layout_margin="@dimen/input_margin"
+        android:fontFamily="@font/josefinsans_regular"
         android:hint="@string/email_id"
         android:inputType="textEmailAddress"
         android:textColor="@android:color/black"
-        android:textSize="20sp"
+        android:textColorHint="@android:color/darker_gray"
+        android:textSize="@dimen/text_size"
         android:visibility="invisible" />
 
     <LinearLayout
@@ -56,6 +70,7 @@
             android:layout_margin="@dimen/input_margin"
             android:layout_weight="1"
             android:background="@drawable/background"
+            android:fontFamily="@font/josefinsans_semibold"
             android:onClick="signUpButton"
             android:text="@string/sign_up"
             android:textColor="@android:color/black" />
@@ -68,6 +83,7 @@
             android:layout_margin="@dimen/input_margin"
             android:layout_weight="1"
             android:background="@drawable/background"
+            android:fontFamily="@font/josefinsans_semibold"
             android:onClick="signIn"
             android:text="@string/sign_in"
             android:textColor="@android:color/black" />
@@ -83,6 +99,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/gap"
         android:background="@drawable/background"
+        android:fontFamily="@font/josefinsans_semibold"
         android:onClick="signUp"
         android:text="@string/sign_up"
         android:textColor="@android:color/black"

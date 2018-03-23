@@ -3,6 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.9"
+        android:contentDescription="@string/background"
+        android:scaleType="centerCrop"
+        android:src="@drawable/backdrop1" />
+
     <RelativeLayout
         android:id="@+id/queBox"
         android:layout_width="match_parent"
@@ -14,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/question"
@@ -22,9 +31,11 @@
             android:layout_height="@dimen/question_height"
             android:layout_below="@id/questionNo"
             android:background="@color/question_back"
+            android:fontFamily="@font/josefinsans_bold"
             android:gravity="center"
             android:text="@string/question"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/question_text" />
 
     </RelativeLayout>
 
@@ -48,8 +59,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
+                android:fontFamily="@font/josefinsans_semibold"
                 android:text="@string/option_1"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/white" />
 
             <Button
                 android:id="@+id/opt1"
@@ -57,6 +69,7 @@
                 android:layout_height="@dimen/option_height"
                 android:layout_below="@id/optNO1"
                 android:background="@drawable/background"
+                android:fontFamily="@font/josefinsans_bold"
                 android:gravity="center"
                 android:onClick="validate"
                 android:textColor="@android:color/black" />
@@ -75,8 +88,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
+                android:fontFamily="@font/josefinsans_semibold"
                 android:text="@string/option_2"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/white" />
 
             <Button
                 android:id="@+id/opt2"
@@ -84,6 +98,7 @@
                 android:layout_height="@dimen/option_height"
                 android:layout_below="@id/optNO2"
                 android:background="@drawable/background"
+                android:fontFamily="@font/josefinsans_bold"
                 android:gravity="center"
                 android:onClick="validate"
                 android:textColor="@android:color/black" />
@@ -91,7 +106,6 @@
         </RelativeLayout>
 
     </LinearLayout>
-
 
     <LinearLayout
         android:id="@+id/optBox3n4"
@@ -113,8 +127,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
+                android:fontFamily="@font/josefinsans_semibold"
                 android:text="@string/option_3"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/white" />
 
             <Button
                 android:id="@+id/opt3"
@@ -122,6 +137,7 @@
                 android:layout_height="@dimen/option_height"
                 android:layout_below="@id/optNO3"
                 android:background="@drawable/background"
+                android:fontFamily="@font/josefinsans_bold"
                 android:gravity="center"
                 android:onClick="validate"
                 android:textColor="@android:color/black" />
@@ -139,8 +155,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
+                android:fontFamily="@font/josefinsans_semibold"
                 android:text="@string/option_4"
-                android:textColor="@android:color/black" />
+                android:textColor="@android:color/white" />
 
             <Button
                 android:id="@+id/opt4"
@@ -148,6 +165,7 @@
                 android:layout_height="@dimen/option_height"
                 android:layout_below="@id/optNO4"
                 android:background="@drawable/background"
+                android:fontFamily="@font/josefinsans_bold"
                 android:gravity="center"
                 android:onClick="validate"
                 android:textColor="@android:color/black" />
@@ -170,10 +188,11 @@
             android:layout_height="@dimen/option_height"
             android:layout_margin="@dimen/margin"
             android:layout_weight="1"
+            android:fontFamily="@font/josefinsans_bold"
             android:gravity="center"
             android:onClick="previous"
             android:text="@string/previous"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/next"
@@ -182,10 +201,11 @@
             android:layout_height="@dimen/option_height"
             android:layout_margin="@dimen/margin"
             android:layout_weight="1"
+            android:fontFamily="@font/josefinsans_bold"
             android:gravity="center"
             android:onClick="next"
             android:text="@string/next"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 

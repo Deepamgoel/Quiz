@@ -66,11 +66,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     public void signIn(View view) {
-        Intent openOtherActivity = new Intent(this, Quiz.class);
-        startActivity(openOtherActivity);
+
+        EditText username = findViewById(R.id.username);
+        String empty_username = username.getText().toString();
+
+        if (TextUtils.isEmpty(empty_username)) {
+            username.setError("Invalid Input");
+
+        } else {
+            Intent openOtherActivity = new Intent(this, Quiz.class);
+            startActivity(openOtherActivity);
+        }
     }
-
-
 }
+
